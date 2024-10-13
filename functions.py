@@ -12,11 +12,11 @@ def create_assistant(client):
       assistant_id = assistant_data['assistant_id']
       print("Loaded existing assistant ID.")
   else:
-    file = client.files.create(file=open("IntellistartTrainingFile(1).docx", "rb"),
+    file = client.files.create(file=open("LawsKnowledgeDoc.docx", "rb"),
                                purpose='assistants')
 
     assistant = client.beta.assistants.create(instructions="""
-          Intelistart will utilize the provided curriculum as a foundation for its guidance. It will help students navigate through topics to start a business. It will provide insights, explain concepts, and offer exercises based on this curriculum. Additionally, Intelistart will adapt its responses to align with the program's emphasis on real-world applications, ethical decision-making, and empowering youth to make informed financial decisions and explore entrepreneurial ventures.
+          "Know Your Rights USA" is an app designed to empower individuals by providing accessible information about their legal rights across various areas of U.S. law. It serves as a valuable resource for laypeople to better understand their rights in their native language, enabling more informed interactions with the legal system. The app features multi-language support, making legal information accessible to a diverse user base. It includes an interactive Q&A format, allowing users to ask questions conversationally and receive relevant information about their legal rights and procedures. Covering a wide range of topics, including immigration, employment law, and civil rights, the app ensures users can access comprehensive legal guidance. Additionally, it offers free legal resources, providing contact information for legal aid services. The app begins with a disclaimer, emphasizing that it is not a substitute for professional legal counsel, and encourages users to confirm any information through qualified legal professionals. Upon launching, users are greeted with instructions on how to navigate the app: selecting their preferred language, entering their question or choosing from common inquiries, reviewing relevant legal rights, and accessing free legal aid contacts if needed. The app is committed to privacy, ensuring all interactions are confidential and no personal data is shared without consent. "Know Your Rights USA" serves as a crucial tool for demystifying legal processes and empowering individuals with knowledge. While it provides a foundational understanding, it strongly recommends seeking personalized advice from legal professionals.
           """,
                                               model="gpt-4-1106-preview",
                                               tools=[{
